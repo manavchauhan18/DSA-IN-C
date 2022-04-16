@@ -1,0 +1,42 @@
+A data structure is a way to store and organize data in a computer, so that it can be used efficiently. 
+
+ABSTRACT DATA TYPE(ADT) - defines data and operations but no implementation.
+
+ARRAY VS LINKED LIST
+
+1) Cost of accessing an element -
+
+Array - Constant time [O(1)]
+Linked List - O(n)
+
+2) Memory Requirement -
+
+Array - Fixed size
+Linked List - Dynamically allocated whenever required [Extra memory for the pointer variable]
+
+Array - memory may not be available as one large block
+Linked List - memory may be available as multiple small blocks
+
+3) Cost of inserting and deleting an element
+
+Array :-
+
+a) At beginning - O(n)
+b) At end - O(1) => if array is not full ;; O(n) => array full
+c) At ith position - O(n)
+
+Linked List :-
+
+a) At beginning - O(1)
+b) At end - O(n)
+c) At ith position - O(n)
+
+4) Ease of use
+
+Array - Easy to implement
+Linked List - More prone to errors when using C or C++
+
+
+IMPLEMENTATION OF LINKED LIST
+
+
