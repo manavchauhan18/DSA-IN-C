@@ -12,6 +12,7 @@ void insertInTheBeginning(int item);
 void insertAtThePosition(int loc, int item);
 void insertAtEnd(int item);
 void deleteAtGivenPosition(int loc);
+void reverseList();
 
 int main() {
     int n, num, loc;
@@ -30,6 +31,9 @@ int main() {
     insertAtThePosition(loc, num);
     displayList();
     deleteAtGivenPosition(loc);
+    displayList();
+    printf("\n-------------------------------------------\n\n");
+    reverseList();
     displayList();
     return 0;
 }
@@ -117,7 +121,19 @@ void deleteAtGivenPosition(int loc) {
     }
     tmp1 = tmp -> next;
     tmp -> next = tmp1 -> next;
-    free(tmp1);
+}
+
+void reverseList() {
+    struct node *current, *next, *prev;
+    current = stNode;
+    prev = NULL;
+    while(current != NULL) {
+        next = current -> next;
+        current -> next = prev;
+        prev = current;
+        current = next;
+    }
+    stNode = prev;
 }
 
 void displayList() {
