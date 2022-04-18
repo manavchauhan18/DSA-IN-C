@@ -11,6 +11,7 @@ void displayList();
 void insertInTheBeginning(int item);
 void insertAtThePosition(int loc, int item);
 void insertAtEnd(int item);
+void deleteAtGivenPosition(int loc);
 
 int main() {
     int n, num, loc;
@@ -27,6 +28,8 @@ int main() {
     displayList();
     printf("\n-------------------------------------------\n\n");
     insertAtThePosition(loc, num);
+    displayList();
+    deleteAtGivenPosition(loc);
     displayList();
     return 0;
 }
@@ -102,6 +105,19 @@ void insertAtThePosition(int loc, int num) {
     }
     ptr -> next = tmp -> next;
     tmp -> next = ptr;
+}
+
+void deleteAtGivenPosition(int loc) {
+    printf("Enter the position to delete the node: ");
+    scanf("%d", &loc);
+    struct node *tmp, *tmp1;
+    tmp = stNode;
+    for(int i = 0; i < loc - 2; i++) {
+        tmp = tmp -> next;
+    }
+    tmp1 = tmp -> next;
+    tmp -> next = tmp1 -> next;
+    free(tmp1);
 }
 
 void displayList() {
