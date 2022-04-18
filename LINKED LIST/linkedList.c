@@ -8,13 +8,25 @@ struct node {
 
 void createLinkedList(int n);
 void displayList();
+void insertInTheBeginning(int item);
+void insertAtThePosition(int loc, int item);
+void insertAtEnd(int item);
 
 int main() {
-    int n;
+    int n, num, loc;
     printf("Input the number of nodes: ");
     scanf("%d", &n);
     createLinkedList(n);
-    printf("Displaying the List: ");
+    printf("Displaying the List: \n");
+    displayList();
+    printf("\n-------------------------------------------\n\n");
+    insertAtTheBeginning(num);
+    displayList();
+    printf("\n-------------------------------------------\n\n");
+    insertAtEnd(num);
+    displayList();
+    printf("\n-------------------------------------------\n\n");
+    insertAtThePosition(loc, num);
     displayList();
     return 0;
 }
@@ -50,6 +62,46 @@ void createLinkedList(int n) {
             }
         }
     }
+}
+
+void insertAtTheBeginning(int num) {
+    struct node *ptr;
+    ptr = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the Node to be inserted at the beginning: \n");
+    scanf("%d", &num);
+    ptr -> data = num;
+    ptr -> next = stNode;
+    stNode = ptr;
+}
+
+void insertAtEnd(int num) {
+    struct node *ptr, *tmp;
+    tmp = stNode;
+    ptr = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the Node to be inserted at the End: \n");
+    scanf("%d", &num);
+    ptr -> data = num;
+    ptr -> next = NULL;
+    while(tmp -> next != NULL) {
+        tmp = tmp -> next;
+    }
+    tmp -> next = ptr;
+}
+
+void insertAtThePosition(int loc, int num) {
+    struct node *tmp, *ptr;
+    tmp = stNode;
+    printf("Enter the Node to be inserted at the given Location: \n");
+    scanf("%d", &num);
+    ptr -> data = num;
+    ptr -> next = NULL;
+    printf("Enter  the location: ");
+    scanf("%d", &loc);
+    for(int i = 0; i < loc-2; i++) {
+        tmp = tmp -> next;
+    }
+    ptr -> next = tmp -> next;
+    tmp -> next = ptr;
 }
 
 void displayList() {
